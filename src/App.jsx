@@ -17,14 +17,20 @@ function App() {
 
     prevValueRef.current = qrValue;
     setIsGeneratingQR(true);
-    setQrImageSrc(
-      `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${qrValue}`
-    );
 
-    setTimeout(() => {
-      setIsQRImgActive(true);
-      setIsGeneratingQR(false);
-    }, 200);
+    fetch(
+      `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${qrValue}`
+    )
+      .then(data => {
+        setQrImageSrc(data.url);
+        setTimeout(() => {
+          setIsQRImgActive(true);
+          setIsGeneratingQR(false);
+        }, 150);
+      })
+      .catch(error => {
+        console.log(error);
+      });
   };
 
   const handleInputOnChange = e => {
