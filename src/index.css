@@ -25,6 +25,7 @@ body {
     background-image: linear-gradient(90deg, #74ebd5 0%, #9face6 100%);
     display: flex;
     flex-direction: column;
+    justify-content: center;
     gap: 1.5rem;
 
     border-radius: 8px;
@@ -33,6 +34,8 @@ body {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 
     @media (width <= 480px) {
+      height: 100vh;
+      width: 100vw;
       padding: 24px 16px;
     }
   }
