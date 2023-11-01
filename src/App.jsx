@@ -1,4 +1,5 @@
 import { useRef, useState } from 'react';
+import Header from './components/Header/Header';
 
 function App() {
   const qrImgRef = useRef(null);
@@ -9,6 +10,8 @@ function App() {
   const [isQRImgActive, setIsQRImgActive] = useState(false);
   const [qrImageSrc, setQrImageSrc] = useState('');
 
+  const apiUrl = import.meta.env.VITE_API_URL;
+
   const handleGenerateCode = e => {
     e.preventDefault();
 
@@ -18,15 +21,13 @@ function App() {
     prevValueRef.current = qrValue;
     setIsGeneratingQR(true);
 
-    fetch(
-      `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${qrValue}`
-    )
+    fetch(`${apiUrl}${qrValue}`)
       .then(data => {
         setQrImageSrc(data.url);
         setTimeout(() => {
           setIsQRImgActive(true);
           setIsGeneratingQR(false);
-        }, 150);
+        }, 200);
       })
       .catch(error => {
         console.log(error);
@@ -40,10 +41,7 @@ function App() {
 
   return (
     <div className="wrapper">
-      <header>
-        <h1>Crea tu código QR</h1>
-        <p>Ingresa una URL para generar un código QR</p>
-      </header>
+      <Header />
 
       <form onSubmit={handleGenerateCode} className="form">
         <input
