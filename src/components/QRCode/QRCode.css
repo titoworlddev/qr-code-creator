@@ -5,4 +5,13 @@
   padding: 16px 0;
   border-radius: 8px;
   border: 2px solid rgba(29, 69, 95, 0.6);
+
+  @media (width <= 300px) {
+    transition: none;
+
+    padding: 16px;
+    & img {
+      width: 100%;
+    }
+  }
 }
