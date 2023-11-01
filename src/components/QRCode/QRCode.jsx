@@ -1,5 +1,5 @@
 import { useContext, useRef } from 'react';
-import { QRCodeContext } from '../../contexts/QRCodeContext';
+import { QRCodeContext } from '../../contexts/QRCode/QRCodeContext';
 
 import './QRCode.css';
 
