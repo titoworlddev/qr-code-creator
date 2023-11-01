@@ -31,7 +31,7 @@ form {
       outline: none;
       width: 100%;
       padding: 16px;
-      padding-right: 36px;
+      padding-right: 40px;
 
       color: #1d455f;
       &::placeholder {
