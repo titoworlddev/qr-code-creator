@@ -1,10 +1,17 @@
 # QR Code Creator
 
+QR code creator made with React.
+
+1. [EN](#EN)
+2. [ES](#ES)
+
 ---
+
+<a name="EN"></a>
 
 #### EN
 
-##### QR code creator made with React.
+##### Introduction
 
 In this project, I used React to made this QR code creator that is simply and nice. But under this simplicity, there are very React features.
 
@@ -35,9 +42,11 @@ I hope this helps you and that you enjoy the app.
 
 ---
 
+<a name="ES"></a>
+
 #### ES
 
-##### Creador de códigos QR hecho con React.
+##### Introducción
 
 En este proyecto, he usado React para crear este creador de códigos QR que es simple y agradable. Pero bajo esta simplicidad, hay muchas características de React.
 
