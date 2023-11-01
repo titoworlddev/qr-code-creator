@@ -4,6 +4,7 @@ import { QRCodeContext } from '../../contexts/QRCode/QRCodeContext';
 import './Form.css';
 import useAppLanguage from '../../hooks/useAppLanguage';
 import { languages } from '../../languages/languages';
+import { IconEraser } from '@tabler/icons-react';
 
 export default function Form() {
   const {
@@ -90,7 +91,7 @@ export default function Form() {
         />
         {qrInputValue && (
           <div className="button" onClick={handleResetInputValue}>
-            ✖️
+            <IconEraser color="#1d455f" />
           </div>
         )}
       </div>
