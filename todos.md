@@ -1,2 +1,0 @@
-- Poner la traduccion a ingles
-- Hacer las capturar de pantalla en ingles

@@ -28,7 +28,7 @@ Well, possibly it is not necessary to explain how the app works, but here we go.
 1. Copy and paste an url or text in the input  
    ![Text input image](image.png)
 2. Click the generate button and wait  
-   ![Generate button image](image-1.png)
+   ![Generate button imahe](image-5.png)
 3. You should to have the QR code generated  
    ![QR Code image](image-2.png)
 4. Read the code with your QR reader app
@@ -37,8 +37,8 @@ I hope this helps you and that you enjoy the app.
 
 ##### Screenshots
 
-![Default app state](image-3.png)
-![Final app state image](image-4.png)
+![Default app state](image-7.png)
+![Final app state image](image-6.png)
 
 ---
 
@@ -72,5 +72,5 @@ Espero que esto te ayude y que disfrutes la app.
 
 ##### Capturas de pantalla
 
-![Default app state](image-3.png)
-![Final app state image](image-4.png)
+![Default app state](image-8.png)
+![Final app state image](image-9.png)
