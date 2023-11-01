@@ -2,6 +2,8 @@ import { useContext, useEffect, useRef } from 'react';
 import { QRCodeContext } from '../../contexts/QRCode/QRCodeContext';
 
 import './Form.css';
+import useAppLanguage from '../../hooks/useAppLanguage';
+import { languages } from '../../languages/languages';
 
 export default function Form() {
   const {
@@ -14,6 +16,9 @@ export default function Form() {
   } = useContext(QRCodeContext);
   const prevValueRef = useRef(null);
   const apiUrl = import.meta.env.VITE_API_URL;
+  const { appLanguage } = useAppLanguage();
+  const { defaultText, generatingText } =
+    languages[appLanguage].form.submitButton;
 
   const handleGenerateCode = e => {
     e.preventDefault();
@@ -90,9 +95,7 @@ export default function Form() {
         )}
       </div>
 
-      <button>
-        {isGeneratingQR ? 'Generando código...' : 'Generar código'}
-      </button>
+      <button>{isGeneratingQR ? generatingText : defaultText}</button>
     </form>
   );
 }
