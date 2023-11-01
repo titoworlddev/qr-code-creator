@@ -1,0 +1,16 @@
+.social-btns {
+  display: flex;
+  gap: 8;
+  justify-content: flex-end;
+  align-items: center;
+
+  & a {
+    cursor: pointer;
+    text-decoration: none;
+    color: #1d455f;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}

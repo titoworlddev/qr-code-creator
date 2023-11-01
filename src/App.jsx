@@ -5,6 +5,12 @@ import QRCodeProvider from './contexts/QRCode/QRCodeProvider';
 import { useEffect, useLayoutEffect, useRef } from 'react';
 import autoAnimate from '@formkit/auto-animate';
 import useAppLanguage from './hooks/useAppLanguage';
+import {
+  IconBrandGithub,
+  IconBrandGithubFilled,
+  IconBrandLinkedin
+} from '@tabler/icons-react';
+import SocialButtons from './components/SocialButtons/SocialButtons';
 
 function App() {
   const { setDocumentLang } = useAppLanguage();
@@ -26,6 +32,8 @@ function App() {
         <Form />
 
         <QRCode />
+
+        <SocialButtons />
       </div>
     </QRCodeProvider>
   );
