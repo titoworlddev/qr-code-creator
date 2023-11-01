@@ -1,4 +1,4 @@
-import { useContext, useRef } from 'react';
+import { useContext, useEffect, useRef } from 'react';
 import { QRCodeContext } from '../../contexts/QRCodeContext';
 
 import './Form.css';
@@ -17,8 +17,8 @@ export default function Form() {
 
   const handleGenerateCode = e => {
     e.preventDefault();
-
     const qrValue = qrInputValue.trim();
+
     if (!qrValue || prevValueRef.current === qrValue) return;
 
     prevValueRef.current = qrValue;
@@ -39,21 +39,56 @@ export default function Form() {
 
   const handleInputOnChange = e => {
     const qrCode = document.querySelector('.qr-code');
-    // Add this display = 'none' because the hiding animation is very gross if you don't make this
+
+    // Added this display = 'none' because the hiding animation is very gross if you don't make this
     if (qrCode) qrCode.style.display = 'none';
     setIsQRImgActive(false);
     setQrInputValue(e.target.value);
   };
 
+  const handleResetInputValue = () => {
+    const qrCode = document.querySelector('.qr-code');
+
+    if (qrCode) qrCode.style.display = 'none';
+    setIsQRImgActive(false);
+    setQrInputValue('');
+  };
+
+  useEffect(() => {
+    const inputContainer = document.querySelector('.input');
+    const input = document.querySelector('.input input');
+    const addFocus = () => {
+      inputContainer.classList.add('focus');
+    };
+    const removeFocus = () => {
+      inputContainer.classList.remove('focus');
+    };
+
+    input.addEventListener('focus', addFocus);
+    input.addEventListener('blur', removeFocus);
+
+    return () => {
+      input.removeEventListener('focus', addFocus);
+      input.removeEventListener('blur', removeFocus);
+    };
+  }, []);
+
   return (
     <form onSubmit={handleGenerateCode} className="form">
-      <input
-        type="text"
-        spellCheck={false}
-        placeholder="Ingresa aqui la URL..."
-        value={qrInputValue}
-        onChange={handleInputOnChange}
-      />
+      <div className="input">
+        <input
+          type="text"
+          spellCheck={false}
+          placeholder="Ingresa aqui la URL..."
+          value={qrInputValue}
+          onChange={handleInputOnChange}
+        />
+        {qrInputValue && (
+          <div className="button" onClick={handleResetInputValue}>
+            ✖️
+          </div>
+        )}
+      </div>
 
       <button>
         {isGeneratingQR ? 'Generando código...' : 'Generar código'}
