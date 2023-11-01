@@ -1,0 +1,3 @@
+- Hacer bien las animaciones
+- Poner la traduccion a ingles
+- Hacer las capturar de pantalla en ingles
