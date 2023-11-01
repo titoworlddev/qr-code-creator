@@ -79,7 +79,7 @@ export default function Form() {
         <input
           type="text"
           spellCheck={false}
-          placeholder="Ingresa aqui la URL..."
+          placeholder="https://..."
           value={qrInputValue}
           onChange={handleInputOnChange}
         />
