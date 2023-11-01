@@ -1,6 +1,8 @@
 import { useContext, useRef } from 'react';
 import { QRCodeContext } from '../../contexts/QRCodeContext';
 
+import './Form.css';
+
 export default function Form() {
   const {
     qrInputValue,
@@ -28,7 +30,7 @@ export default function Form() {
         setTimeout(() => {
           setIsQRImgActive(true);
           setIsGeneratingQR(false);
-        }, 200);
+        }, 300);
       })
       .catch(error => {
         console.log(error);
@@ -36,6 +38,9 @@ export default function Form() {
   };
 
   const handleInputOnChange = e => {
+    const qrCode = document.querySelector('.qr-code');
+    // Add this display = 'none' because the hiding animation is very gross if you don't make this
+    if (qrCode) qrCode.style.display = 'none';
     setIsQRImgActive(false);
     setQrInputValue(e.target.value);
   };

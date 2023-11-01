@@ -1,6 +1,8 @@
 import { useContext, useRef } from 'react';
 import { QRCodeContext } from '../../contexts/QRCodeContext';
 
+import './QRCode.css';
+
 export default function QRCode() {
   const { isQRImgActive, qrImageSrc } = useContext(QRCodeContext);
 

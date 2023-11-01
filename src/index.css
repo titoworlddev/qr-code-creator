@@ -30,55 +30,5 @@ body {
     padding: 24px 48px;
     transition: height 0.2s ease-in-out;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-
-    & form {
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-
-      & input,
-      button {
-        width: 100%;
-        padding: 16px;
-        border: none;
-        outline: none;
-        border-radius: 4px;
-        transition: 0.2s ease-in;
-        font-size: 18px;
-      }
-
-      & input {
-        color: #1d455f;
-        &:focus {
-          box-shadow: 0 4px 5px rgba(0, 0, 0, 0.4);
-        }
-        &::placeholder {
-          color: #1d455f;
-        }
-      }
-
-      & button {
-        background-color: #1d455f;
-        color: #ffffffe6;
-        cursor: pointer;
-
-        &:hover {
-          filter: brightness(1.2);
-        }
-        &:active {
-          filter: brightness(1);
-        }
-      }
-    }
-
-    .qr-code {
-      /* opacity: 0; */
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 16px 0;
-      border-radius: 8px;
-      border: 2px solid rgba(29, 69, 95, 0.6);
-    }
   }
 }
