@@ -2,8 +2,8 @@
 
 QR code creator made with React.
 
-1. [EN](#EN)
-2. [ES](#ES)
+- [EN](#EN)
+- [ES](#ES)
 
 ---
 
