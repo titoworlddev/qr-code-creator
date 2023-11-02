@@ -1,6 +1,6 @@
 import Header from './components/Header/Header';
 import Form from './components/Form/Form';
-import QRCode from './components/QRCode/QRCode';
+import QRCodeResult from './components/QRCodeResult/QRCodeResult';
 import QRCodeProvider from './contexts/QRCode/QRCodeProvider';
 import { useEffect, useLayoutEffect, useRef } from 'react';
 import autoAnimate from '@formkit/auto-animate';
@@ -31,7 +31,7 @@ function App() {
 
         <Form />
 
-        <QRCode />
+        <QRCodeResult />
 
         <SocialButtons />
       </div>

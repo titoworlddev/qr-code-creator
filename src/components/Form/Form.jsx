@@ -1,10 +1,12 @@
+import './Form.css';
+
 import { useContext, useEffect, useRef } from 'react';
 import { QRCodeContext } from '../../contexts/QRCode/QRCodeContext';
 
-import './Form.css';
 import useAppLanguage from '../../hooks/useAppLanguage';
 import { languages } from '../../languages/languages';
 import { IconEraser } from '@tabler/icons-react';
+import { QRCode } from '../../utils/qrcode.min';
 
 export default function Form() {
   const {
@@ -39,23 +41,40 @@ export default function Form() {
         }, 300);
       })
       .catch(error => {
+        // As I am interested in demonstrating that I manage the use of APIs, the main method to generate the QR is through the API, but if it fails, a code is still generated using the 'qrcodejs' library from https://github.com/davidshimjs/qrcodejs
+        const qrErrorImg = document.querySelector('.qr-error-img');
+        new QRCode(qrErrorImg, {
+          text: 'csdcsd',
+          width: 200,
+          height: 200,
+          colorDark: '#000000',
+          colorLight: '#ffffff',
+          correctLevel: QRCode.CorrectLevel.H
+        });
+        setTimeout(() => {
+          setQrImageSrc(qrErrorImg.lastChild.src);
+          setIsQRImgActive(true);
+          setIsGeneratingQR(false);
+          qrErrorImg.firstChild.remove();
+          qrErrorImg.lastChild.remove();
+        }, 300);
         console.log(error);
       });
   };
 
   const handleInputOnChange = e => {
-    const qrCode = document.querySelector('.qr-code');
+    const qrCodeResult = document.querySelector('.qr-code-result');
 
     // Added this display = 'none' because the hiding animation is very gross if you don't make this
-    if (qrCode) qrCode.style.display = 'none';
+    if (qrCodeResult) qrCodeResult.style.display = 'none';
     setIsQRImgActive(false);
     setQrInputValue(e.target.value);
   };
 
   const handleResetInputValue = () => {
-    const qrCode = document.querySelector('.qr-code');
+    const qrCodeResult = document.querySelector('.qr-code-result');
 
-    if (qrCode) qrCode.style.display = 'none';
+    if (qrCodeResult) qrCodeResult.style.display = 'none';
     setIsQRImgActive(false);
     setQrInputValue('');
   };

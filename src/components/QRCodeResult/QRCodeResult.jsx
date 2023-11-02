@@ -1,9 +1,9 @@
 import { useContext, useRef } from 'react';
 import { QRCodeContext } from '../../contexts/QRCode/QRCodeContext';
 
-import './QRCode.css';
+import './QRCodeResult.css';
 
-export default function QRCode() {
+export default function QRCodeResult() {
   const { isQRImgActive, qrImageSrc } = useContext(QRCodeContext);
 
   const qrImgRef = useRef(null);
@@ -11,10 +11,11 @@ export default function QRCode() {
   return (
     <>
       {isQRImgActive && (
-        <div className="qr-code">
-          <img ref={qrImgRef} src={qrImageSrc} alt="qr-code" />
+        <div className="qr-code-result">
+          <img ref={qrImgRef} src={qrImageSrc} alt="qr-code-result" />
         </div>
       )}
+      <div className="qr-error-img" style={{ display: 'none' }}></div>
     </>
   );
 }
