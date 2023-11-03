@@ -18,7 +18,7 @@ export default function SocialButtons() {
       <a
         target="_blank"
         rel="noreferrer"
-        href="https://github.com/titoworlddev"
+        href="https://github.com/titoworlddev/qr-code-creator"
       >
         <IconBrandGithub color="#1d455f" />
       </a>
